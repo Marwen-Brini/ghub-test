@@ -1,0 +1,10 @@
+name: Marwen
+age: 35
+address: "rue :20 mars"
+active: true
+array:
+  - item1
+  - item2
+  - { key: value}
+objectArray:
+  - key: value
