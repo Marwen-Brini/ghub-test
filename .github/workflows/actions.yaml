@@ -1,6 +1,9 @@
 name: Actions Workflow
 on:
-  push:
+  #push:
+  schedule:
+    - cron: "0/5 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
+    - cron: "0/6 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
   pull_request:
     types:
       - closed
@@ -20,8 +23,8 @@ jobs:
            echo $GITHUB_REPOSITORY
            echo $GITHUB_WORKSPACE
            echo "${{github.token}}"
-           # git clone git@github:$GITHUB_REPOSITORY
-           # git checkout $GITHUB_SHA
+           it clone git@github:$GITHUB_REPOSITORY
+           git checkout $GITHUB_SHA
       - name: checkout
         uses: actions/checkout@v1
       - name: list files and folders and checkout
