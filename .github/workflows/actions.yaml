@@ -2,8 +2,8 @@ name: Actions Workflow
 on:
   #push:
   schedule:
-    - cron: "0/5 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
-    - cron: "0/6 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
+    - cron: "0/1 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
+    - cron: "0/2 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
   pull_request:
     types:
       - closed
