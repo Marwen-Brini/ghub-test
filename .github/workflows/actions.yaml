@@ -1,6 +1,13 @@
 name: Actions Workflow
 on:
-  #push:
+  push:
+    branches:
+      - main
+      - "feature/*"
+      - "feature/**"
+      #repository_dispatch:
+
+    #push:
   #schedule:
     #- cron: "0/1 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
     #- cron: "0/2 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
