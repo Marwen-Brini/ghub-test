@@ -1,7 +1,23 @@
 name: Actions Workflow
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+      - "feature/*"
+      - "feature/**"
+      #repository_dispatch:
+
+    #push:
+  #schedule:
+    #- cron: "0/1 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
+    #- cron: "0/2 * * * *" #minute, hours, day_of_the_month, month, day_of_the_week
+  pull_request:
+    types:
+      - closed
+      - assigned
+      - opened
+      - reopened
+
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
@@ -14,15 +30,15 @@ jobs:
            echo $GITHUB_REPOSITORY
            echo $GITHUB_WORKSPACE
            echo "${{github.token}}"
-           # git clone git@github:$GITHUB_REPOSITORY
-           # git checkout $GITHUB_SHA
+           it clone git@github:$GITHUB_REPOSITORY
+           git checkout $GITHUB_SHA
       - name: checkout
         uses: actions/checkout@v1
       - name: list files and folders and checkout
         run: |
           pwd
           ls -a
-      - name: Simple JS Action
+      - name: Simple JS Actions
         id: greet
         uses: actions/hello-world-javascript-action@main
         with:
